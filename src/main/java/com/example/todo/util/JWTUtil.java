@@ -23,7 +23,7 @@ public class JWTUtil {
 
     public String generateToken(String email) throws IllegalArgumentException, JWTCreationException {
         return JWT.create()
-                .withSubject("User Details")
+                .withSubject("Profile Details")
                 .withClaim("email", email)
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
@@ -33,7 +33,7 @@ public class JWTUtil {
 
     public String validateTokenAndRetrieveSubject(String token) throws JWTVerificationException {
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256(secret))
-                .withSubject("User Details")
+                .withSubject("Profile Details")
                 .withIssuer("Todo")
                 .build();
         DecodedJWT jwt = verifier.verify(token);

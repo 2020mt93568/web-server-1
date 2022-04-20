@@ -19,7 +19,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public Todo create(Todo obj) {
-        obj.setId(null);
+//        obj.setId(null);
         obj.setReferenceId(UUID.randomUUID().toString());
         obj.setCreatedAt(new Date());
         obj.setUpdatedAt(new Date());
@@ -32,8 +32,8 @@ public class TodoServiceImpl implements TodoService {
     };
 
     @Override
-    public List<Todo> findByUserId(String userId) {
-        return todoRepository.findByUserId(userId);
+    public List<Todo> findByProfileId(String profileId) {
+        return todoRepository.findByProfile(profileId);
     };
 
     @Override

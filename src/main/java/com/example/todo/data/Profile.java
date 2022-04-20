@@ -6,43 +6,43 @@ import javax.validation.constraints.NotNull;
 
 import lombok.*;
 
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 @Entity
-@Table
-public class User implements Serializable {
+@Table(name="Profile")
+public class Profile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
 
     @NotNull
     @Column(unique = true)
     private String referenceId;
 
-    @NotNull(message = "User's username must not be null")
+    @NotNull(message = "Profile's username must not be null")
     @Column(unique = true)
     private String username;
 
-    @NotNull(message = "User's emailId must not be null")
+    @NotNull(message = "Profile's emailId must not be null")
     @Email
     @Column(unique = true)
     private String emailId;
 
-    @NotNull(message = "User's password must not be null")
+    @NotNull(message = "Profile's password must not be null")
     private String password;
 
     private Date createdAt;
 
     private Date updatedAt;
 
-    @OneToMany(mappedBy = "user")
-    private List<Todo> todos;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Todo> todos;
 
 }

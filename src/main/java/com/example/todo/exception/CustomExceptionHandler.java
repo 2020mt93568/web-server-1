@@ -19,7 +19,7 @@ import com.example.todo.controller.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@ControllerAdvice(assignableTypes = {AuthController.class, TodoController.class, UserController.class})
+@ControllerAdvice(assignableTypes = {AuthController.class, TodoController.class, ProfileController.class})
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 

@@ -13,7 +13,7 @@ public interface TodoService {
 
     Todo read(String referenceId);
 
-    List<Todo> findByUserId(String userId);
+    List<Todo> findByProfileId(String profileId);
 
     Todo update(Todo obj);
 

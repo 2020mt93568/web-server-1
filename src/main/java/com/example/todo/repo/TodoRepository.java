@@ -8,9 +8,9 @@ import com.example.todo.data.Todo;
 import java.util.List;
 
 @Repository
-public interface TodoRepository extends JpaRepository<Todo, String> {
+public interface TodoRepository extends JpaRepository<Todo, Integer> {
 
     Todo findByReferenceId(String referenceId);
-    List<Todo> findByUserId(String userId);
+    List<Todo> findByProfile(String profileId);
 
 }

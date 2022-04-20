@@ -9,7 +9,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @ToString
-public class UserResponseDTO {
+public class ProfileResponseDTO {
 
     private String referenceId;
 

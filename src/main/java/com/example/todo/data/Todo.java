@@ -5,7 +5,6 @@ import javax.validation.constraints.NotNull;
 
 import lombok.*;
 
-import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -14,11 +13,11 @@ import java.util.Date;
 @Builder
 @ToString
 @Entity
-@Table
-public class Todo implements Serializable {
+@Table(name="Todo")
+public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
 
     @NotNull
     @Column(unique = true)
@@ -31,12 +30,11 @@ public class Todo implements Serializable {
 
     private Date date;
 
-    private Date startTime;
-
     private Boolean isCompleted;
 
     @ManyToOne
-    private User user;
+    @JoinColumn(name = "Profile_id")
+    private Profile profile;
 
     private Date createdAt;
 

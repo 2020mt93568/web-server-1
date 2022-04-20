@@ -30,12 +30,12 @@ public class TodoController {
         return ResponseEntity.ok(todoService.read(referenceId));
     }
 
-    @GetMapping({"/userId/{userId}"})
+    @GetMapping({"/profileId/{profileId}"})
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> findByUserId(
-            @PathVariable(value = "userId") String userId
+    public ResponseEntity<?> findByProfileId(
+            @PathVariable(value = "profileId") String profileId
     ) {
-        return ResponseEntity.ok(todoService.findByUserId(userId));
+        return ResponseEntity.ok(todoService.findByProfileId(profileId));
     }
 
     @PutMapping({"/"})

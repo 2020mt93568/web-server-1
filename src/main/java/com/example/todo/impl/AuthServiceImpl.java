@@ -7,12 +7,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
-import com.example.todo.data.User;
+import com.example.todo.data.Profile;
 import com.example.todo.dto.request.LoginRequestDTO;
 import com.example.todo.dto.response.LoginResponseDTO;
 import com.example.todo.dto.request.RegisterRequestDTO;
 import com.example.todo.exception.GenericException;
-import com.example.todo.repo.UserRepository;
+import com.example.todo.repo.ProfileRepository;
 import com.example.todo.util.JWTUtil;
 import com.example.todo.service.AuthService;
 
@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    UserRepository userRepository;
+    ProfileRepository profileRepository;
 
     @Override
     public LoginResponseDTO login(LoginRequestDTO obj) {
@@ -49,15 +49,15 @@ public class AuthServiceImpl implements AuthService {
     };
 
     @Override
-    public User register(RegisterRequestDTO obj) {
-        User user = new User();
-        user.setId(null);
-        user.setEmailId(obj.getEmailId());
-        user.setUsername(obj.getUsername());
-        user.setPassword(obj.getPassword());
-        user.setReferenceId(UUID.randomUUID().toString());
-        user.setCreatedAt(new Date());
-        user.setUpdatedAt(new Date());
-        return userRepository.save(user);
+    public Profile register(RegisterRequestDTO obj) {
+        Profile profile = new Profile();
+//        profile.setId(null);
+        profile.setEmailId(obj.getEmailId());
+        profile.setUsername(obj.getUsername());
+        profile.setPassword(obj.getPassword());
+        profile.setReferenceId(UUID.randomUUID().toString());
+        profile.setCreatedAt(new Date());
+        profile.setUpdatedAt(new Date());
+        return profileRepository.save(profile);
     };
 }
