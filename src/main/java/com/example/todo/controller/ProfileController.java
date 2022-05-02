@@ -12,6 +12,7 @@ import com.example.todo.impl.ProfileServiceImpl;
 
 @RestController
 @RequestMapping("/api/v1/profile")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProfileController {
 
     @Autowired

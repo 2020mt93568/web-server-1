@@ -12,6 +12,7 @@ import com.example.todo.impl.TodoServiceImpl;
 
 @RestController
 @RequestMapping("/api/v1/todo")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TodoController {
 
     @Autowired
